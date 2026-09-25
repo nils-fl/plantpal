@@ -56,6 +56,23 @@ Handgemachte Pixel-Art, kein Konto, kein Internet, keine Werbung.
 
 Kostenlos für alle. Wenn es dir gefällt, kannst du mich auf ko-fi.com/nflaschel unterstützen.
 
+## Review notes
+
+PlantPal is a free offline virtual-pet game: the user cares for a pixel plant (Water, Sun, tap the plant for Love) that grows over several days.
+
+**How to test:** Open the app, press Water and Sun, tap the plant. Swipe up for the stats and garden page. Needs decay in real time, so growth and new forms appear over several days; a wilted plant recovers after watering.
+
+**Permissions:**
+- Step count (data:user.hd.step): steps give the plant bonus growth. Read on the watch only.
+- Alarm and background service (device:os.alarm, device:os.bg_service): two silent daily alarms (23:30 and 23:55) start a short single-run app service that credits the day's steps to the plant. It shows no UI and finishes in under a second.
+- Local storage: saves the game progress on the watch.
+
+**Data:** No network access, no account, no analytics, no third-party SDKs. Nothing leaves the watch.
+
+**Payments:** None. The app is completely free with no locked features. The store description only mentions an optional external tip link (ko-fi.com/nflaschel); nothing in the app refers to it.
+
+Supported devices: square-screen Zepp OS 3+ watches (developed and tested on Amazfit Active 2 Square).
+
 ## Privacy statement
 
 PlantPal does not collect, transmit or share any personal data.
