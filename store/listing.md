@@ -11,6 +11,7 @@ Copy these into the Zepp Open Platform console (console.zepp.com → PlantPal �
 | Screenshots | `store/screenshots/1-thriving.png` … `4-stats.png` (360×360, transparent) |
 | Data permissions | Step count (`data:user.hd.step`), alarms (`device:os.alarm`), background service (`device:os.bg_service`); all used on the watch only |
 | Third-party SDKs | None |
+| Payments | None in the app; the description mentions an optional tip link (ko-fi.com/nflaschel) |
 | Countries | All available |
 
 ## English
@@ -32,6 +33,8 @@ PlantPal is a tiny Tamagotchi-style plant that lives on your watch.
 
 Hand-made pixel art, no account, no internet, no ads.
 
+Free for everyone. If you enjoy it, you can support me at ko-fi.com/nflaschel.
+
 ## Deutsch
 
 **App-Name:** PlantPal
@@ -50,6 +53,8 @@ PlantPal ist eine kleine Pflanze im Tamagotchi-Stil, die auf deiner Uhr lebt.
 - Nach oben wischen für Statistiken: Alter, Wachstum, Schritte und welche Form sie ansteuert.
 
 Handgemachte Pixel-Art, kein Konto, kein Internet, keine Werbung.
+
+Kostenlos für alle. Wenn es dir gefällt, kannst du mich auf ko-fi.com/nflaschel unterstützen.
 
 ## Privacy statement
 
