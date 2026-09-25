@@ -49,6 +49,7 @@ Page({
     const st = s.steps
     text(`Steps today: ${st.last}`, 22, 0xffffff)
     text(`+${st.gpToday} of ${G.STEP_GP_DAILY_CAP} growth from walking`, 18, 0xaaaaaa)
+    text('Steps count when you check in before midnight.', 16, 0x888888, 44)
     y += 8
 
     text('Care profile', 22, 0xffffff)

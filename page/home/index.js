@@ -24,19 +24,23 @@ const TICK_MS = 60 * 1000
 const TOAST_MS = 1500
 
 Page({
-  state: {
-    plant: null,
-    bloomedAtBuild: false,
-    frame: 0,
-    widgets: {},
-    timers: [],
-    hopTimers: [],
-    toastTimer: null
-  },
+  state: {},
 
   onInit() {
-    this.state.plant = sync()
-    this.state.bloomedAtBuild = G.isBloomed(this.state.plant)
+    // Fresh state on every load: replace() may reuse the page object.
+    const plant = sync()
+    this.state = {
+      plant,
+      bloomedAtBuild: G.isBloomed(plant),
+      frame: 0,
+      widgets: {},
+      timers: [],
+      hopTimers: [],
+      toastTimer: null,
+      toast: null,
+      clock: null,
+      leaving: false
+    }
   },
 
   build() {
@@ -104,7 +108,7 @@ Page({
       x: 0, y: px(410), w: px(W), h: px(24),
       color: 0x666666, text_size: px(16),
       align_h: align.CENTER_H, align_v: align.CENTER_V, text_style: text_style.NONE,
-      text: 'Tap plant to love it · swipe up for stats'
+      text: 'Tap plant · swipe up for stats'
     })
 
     onGesture({
@@ -144,6 +148,16 @@ Page({
     // Keep state in sync so onDestroy doesn't save the old plant back.
     this.state.plant = G.replant(sync(this.state.plant), Date.now())
     save(this.state.plant)
+    this.reload()
+  },
+
+  // Rebuild the page (buttons change on bloom). Stop the timers first so none of
+  // them can fire again and trigger a second reload before this page is destroyed.
+  reload() {
+    if (this.state.leaving) return
+    this.state.leaving = true
+    this.state.timers.forEach((t) => clearInterval(t))
+    this.state.timers = []
     replace({ url: 'page/home/index' })
   },
 
@@ -171,9 +185,9 @@ Page({
   render() {
     const s = this.state.plant
     const w = this.state.widgets
+    if (this.state.leaving) return
     if (G.isBloomed(s) !== this.state.bloomedAtBuild) {
-      // Buttons differ once the plant blooms; rebuild the page.
-      replace({ url: 'page/home/index' })
+      this.reload()
       return
     }
     BARS.forEach((b, i) => {

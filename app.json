@@ -1,7 +1,7 @@
 {
   "configVersion": "v3",
   "app": {
-    "appId": 27385,
+    "appId": 1128597,
     "appName": "PlantPal",
     "appType": "app",
     "version": {
@@ -9,10 +9,13 @@
       "name": "1.0.0"
     },
     "icon": "icon.png",
-    "vender": "zepp",
+    "vender": "Nils Flaschel",
     "description": "Grow a pixel plant that changes form with how you care for it"
   },
-  "permissions": ["device:os.local_storage", "data:user.hd.step"],
+  "permissions": [
+    "device:os.local_storage",
+    "data:user.hd.step"
+  ],
   "runtime": {
     "apiVersion": {
       "compatible": "3.0.0",
@@ -24,7 +27,10 @@
     "default": {
       "module": {
         "page": {
-          "pages": ["page/home/index", "page/stats/index"]
+          "pages": [
+            "page/home/index",
+            "page/stats/index"
+          ]
         }
       },
       "platforms": [

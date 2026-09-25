@@ -146,7 +146,7 @@ test('actions restore needs; overwatering hurts', () => {
   assert.equal(s.love, 90)
   G.sun(s)
   assert.equal(s.light, 70)
-  assert.equal(G.love(s), '♥')
+  assert.equal(G.love(s), 'Loved!')
   assert.equal(s.love, 100)
   assert.deepEqual(s.care, { water: 0, sun: 0, love: 0, walk: 0 })
 })

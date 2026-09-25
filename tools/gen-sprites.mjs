@@ -109,7 +109,7 @@ for (const [name, lines] of Object.entries(ICONS)) {
 }
 
 // App icon: blooming sunflower on a dark green disc.
-const ICON_SIZE = 248
+const ICON_SIZE = 240
 const disc = (x, y) => {
   const r = ICON_SIZE / 2
   return (x - r + 0.5) ** 2 + (y - r + 0.5) ** 2 <= r * r ? [0x1b, 0x3a, 0x1f] : null
