@@ -46,6 +46,33 @@ Vom Samen über Keimling und Setzling zur Form, die deine Pflege bestimmt: Farn,
 
 Pixel-Art, keine Werbung, kein Konto, kein Internet. Kostenlos; Trinkgeld: ko-fi.com/nflaschel
 
+## Features descriptions
+
+Feature list:
+
+- Care for a pixel plant: water, sun and love
+- Grows faster when you walk
+- Wilts when neglected, but never dies
+- 5 final forms shaped by your care
+- Collect bloomed plants in your garden
+- Offline, no ads, no account
+
+Screenshot captions (same order as `store/screenshots/`):
+
+1. Keep your plant happy with water, sun and love
+2. Watch it bloom into its final form
+3. Forgot it? It wilts, but a little care brings it back
+4. Track growth, steps and your care profile
+
+Deutsch:
+
+- Pflanze pflegen: Wasser, Sonne und Zuneigung
+- Wächst schneller, wenn du gehst
+- Welkt, stirbt aber nie
+- 5 Endformen je nach Pflege
+- Garten für erblühte Pflanzen
+- Offline, ohne Werbung
+
 ## Review notes
 
 PlantPal is a free offline virtual-pet game: the user cares for a pixel plant (Water, Sun, tap the plant for Love) that grows over several days.
