@@ -7,7 +7,7 @@ Copy these into the Zepp Open Platform console (console.zepp.com → PlantPal �
 | appId | 1128597 |
 | Package | `zeus build` → `dist/1128597-PlantPal-1.0.0-*.zab` |
 | Category | Games |
-| Icon | `assets/default.s/icon.png` (240×240, round, transparent outside) |
+| Icon | `store/icon.png` (240×240, round, transparent outside; same as `assets/default.s/icon.png`) |
 | Screenshots | `store/screenshots/1-thriving.png` … `4-stats.png` (360×360, transparent) |
 | Data permissions | Step count (`data:user.hd.step`), alarms (`device:os.alarm`), background service (`device:os.bg_service`); all used on the watch only |
 | Third-party SDKs | None |
