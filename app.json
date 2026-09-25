@@ -1,0 +1,44 @@
+{
+  "configVersion": "v3",
+  "app": {
+    "appId": 27385,
+    "appName": "PlantPal",
+    "appType": "app",
+    "version": {
+      "code": 1,
+      "name": "1.0.0"
+    },
+    "icon": "icon.png",
+    "vender": "zepp",
+    "description": "Grow a pixel plant that changes form with how you care for it"
+  },
+  "permissions": ["device:os.local_storage", "data:user.hd.step"],
+  "runtime": {
+    "apiVersion": {
+      "compatible": "3.0.0",
+      "target": "3.0.0",
+      "minVersion": "3.0"
+    }
+  },
+  "targets": {
+    "default": {
+      "module": {
+        "page": {
+          "pages": ["page/home/index", "page/stats/index"]
+        }
+      },
+      "platforms": [
+        {
+          "st": "s",
+          "dw": 390
+        }
+      ]
+    }
+  },
+  "i18n": {
+    "en-US": {
+      "appName": "PlantPal"
+    }
+  },
+  "defaultLanguage": "en-US"
+}
