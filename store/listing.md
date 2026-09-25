@@ -60,7 +60,7 @@ PlantPal does not collect, transmit or share any personal data.
 - **Game progress:** your plant, its care history and your garden are stored locally on the watch in the app's own storage. They are deleted when you uninstall the app.
 - PlantPal has no account, no network access, no analytics, no advertising and no third-party SDKs.
 
-Contact: [your contact email]
+Contact: n.flaschel@gmail.com
 
 ### Datenschutzerklärung
 
@@ -71,4 +71,4 @@ PlantPal erhebt, überträgt oder teilt keine personenbezogenen Daten.
 - **Spielstand:** Deine Pflanze, ihr Pflegeverlauf und dein Garten werden lokal im eigenen Speicher der App auf der Uhr gespeichert und beim Deinstallieren gelöscht.
 - PlantPal hat kein Konto, keinen Netzwerkzugriff, keine Analyse, keine Werbung und keine SDKs von Drittanbietern.
 
-Kontakt: [deine Kontakt-E-Mail]
+Kontakt: n.flaschel@gmail.com
