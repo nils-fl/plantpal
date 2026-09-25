@@ -31,6 +31,12 @@ Set `TIME_SCALE = 60` in `lib/game.js` to make an hour pass per minute while tes
 
 Game logic lives in `lib/game.js` (pure, no `@zos` imports); `lib/store.js` handles storage and the step sensor.
 
+## Support
+
+The game is free and ad-free. If you enjoy it, you can buy me a coffee:
+
+[![Support me on Ko-fi](https://img.shields.io/badge/Ko--fi-Buy%20me%20a%20coffee-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/nflaschel)
+
 ## License
 
 [MIT](LICENSE) © 2026 Nils Flaschel
