@@ -30,3 +30,7 @@ Store listing texts, privacy statement and asset checklist: `store/listing.md`.
 Set `TIME_SCALE = 60` in `lib/game.js` to make an hour pass per minute while testing (a test guards it's 1 for release).
 
 Game logic lives in `lib/game.js` (pure, no `@zos` imports); `lib/store.js` handles storage and the step sensor.
+
+## License
+
+[MIT](LICENSE) © 2026 Nils Flaschel
