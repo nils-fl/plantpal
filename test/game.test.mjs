@@ -159,6 +159,7 @@ test('replant moves bloom into the garden and keeps steps', () => {
   assert.equal(n.form, null)
   assert.deepEqual(n.garden, [{ form: 'rose', born: T0, bloomed: T0 + H }])
   assert.equal(n.steps.gpToday, 12)
+  assert.equal(n.nightlyAt, s.nightlyAt)
   // Not bloomed yet: no-op
   const young = plant({ gp: 50 })
   assert.equal(G.replant(young, T0), young)
@@ -187,6 +188,15 @@ test('age starts at Day 1', () => {
   assert.equal(G.ageDay(s, T0), 1)
   assert.equal(G.ageDay(s, T0 + 23 * H), 1)
   assert.equal(G.ageDay(s, T0 + 24 * H), 2)
+})
+
+test('nextAt finds the next local hour:minute', () => {
+  const morning = new Date(2026, 8, 24, 9, 0).getTime()
+  assert.equal(G.nextAt(morning, 23, 55), new Date(2026, 8, 24, 23, 55).getTime())
+  const late = new Date(2026, 8, 24, 23, 55).getTime()
+  assert.equal(G.nextAt(late, 23, 55), new Date(2026, 8, 25, 23, 55).getTime())
+  const monthEnd = new Date(2026, 8, 30, 23, 58).getTime()
+  assert.equal(G.nextAt(monthEnd, 23, 30), new Date(2026, 9, 1, 23, 30).getTime())
 })
 
 test('dateKey pads month and day', () => {

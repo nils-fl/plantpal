@@ -14,7 +14,9 @@
   },
   "permissions": [
     "device:os.local_storage",
-    "data:user.hd.step"
+    "data:user.hd.step",
+    "device:os.alarm",
+    "device:os.bg_service"
   ],
   "runtime": {
     "apiVersion": {
@@ -30,6 +32,11 @@
           "pages": [
             "page/home/index",
             "page/stats/index"
+          ]
+        },
+        "app-service": {
+          "services": [
+            "app-service/nightly"
           ]
         }
       },

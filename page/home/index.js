@@ -5,6 +5,7 @@ import { setPageBrightTime } from '@zos/display'
 import { px } from '@zos/utils'
 import * as G from '../../lib/game.js'
 import { sync, save } from '../../lib/store.js'
+import { ensureNightly } from '../../lib/nightly.js'
 
 const W = 390
 const SPRITE = 192
@@ -27,6 +28,7 @@ Page({
   state: {},
 
   onInit() {
+    ensureNightly()
     // Fresh state on every load: replace() may reuse the page object.
     const plant = sync()
     this.state = {

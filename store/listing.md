@@ -9,7 +9,7 @@ Copy these into the Zepp Open Platform console (console.zepp.com → PlantPal �
 | Category | Games |
 | Icon | `assets/default.s/icon.png` (240×240, round, transparent outside) |
 | Screenshots | `store/screenshots/1-thriving.png` … `4-stats.png` (360×360, transparent) |
-| Data permissions | Step count (`data:user.hd.step`), read on the watch only |
+| Data permissions | Step count (`data:user.hd.step`), alarms (`device:os.alarm`), background service (`device:os.bg_service`); all used on the watch only |
 | Third-party SDKs | None |
 | Countries | All available |
 
@@ -24,7 +24,7 @@ Copy these into the Zepp Open Platform console (console.zepp.com → PlantPal �
 PlantPal is a tiny Tamagotchi-style plant that lives on your watch.
 
 - Water it, give it sunlight and tap it for some love. Its needs drop in real time, even while the app is closed.
-- Walk! Your steps make it grow faster (up to 30 growth points a day). Open PlantPal before midnight so the day's steps count.
+- Walk! Your steps make it grow faster (up to 30 growth points a day).
 - Forget it for too long and it wilts, but it never dies. A little care brings it back.
 - Grow from seed to sprout to sapling, and on to a final form that depends on how you cared for it: Fern, Sunflower, Rose, Oak, or the balanced Bonsai.
 - When it blooms, plant a new seed and keep the old one in your Garden.
@@ -43,7 +43,7 @@ Hand-made pixel art, no account, no internet, no ads.
 PlantPal ist eine kleine Pflanze im Tamagotchi-Stil, die auf deiner Uhr lebt.
 
 - Gieße sie, gib ihr Sonne und tippe sie für etwas Zuneigung an. Ihre Bedürfnisse sinken in Echtzeit, auch wenn die App geschlossen ist.
-- Geh spazieren! Deine Schritte lassen sie schneller wachsen (bis zu 30 Wachstumspunkte am Tag). Öffne PlantPal vor Mitternacht, damit die Schritte des Tages zählen.
+- Geh spazieren! Deine Schritte lassen sie schneller wachsen (bis zu 30 Wachstumspunkte am Tag).
 - Vergisst du sie zu lange, lässt sie die Blätter hängen, stirbt aber nie. Ein wenig Pflege bringt sie zurück.
 - Vom Samen über Keimling und Setzling zur endgültigen Form, je nachdem, wie du sie gepflegt hast: Farn, Sonnenblume, Rose, Eiche oder der ausgeglichene Bonsai.
 - Wenn sie blüht, pflanze einen neuen Samen; die alte Pflanze kommt in deinen Garten.
@@ -56,6 +56,7 @@ Handgemachte Pixel-Art, kein Konto, kein Internet, keine Werbung.
 PlantPal does not collect, transmit or share any personal data.
 
 - **Step count:** PlantPal reads today's step count from the watch to let your plant grow when you walk. The value is only used on the watch and is never sent anywhere.
+- **Nightly check-in:** PlantPal sets two daily alarms (23:30 and 23:55) that briefly run a silent background task on the watch to credit the day's steps to your plant. It shows nothing, sends nothing and finishes in under a second.
 - **Game progress:** your plant, its care history and your garden are stored locally on the watch in the app's own storage. They are deleted when you uninstall the app.
 - PlantPal has no account, no network access, no analytics, no advertising and no third-party SDKs.
 
@@ -66,6 +67,7 @@ Contact: [your contact email]
 PlantPal erhebt, überträgt oder teilt keine personenbezogenen Daten.
 
 - **Schrittzahl:** PlantPal liest die heutige Schrittzahl der Uhr, damit deine Pflanze wächst, wenn du dich bewegst. Der Wert wird nur auf der Uhr verwendet und nirgendwohin gesendet.
+- **Nächtlicher Check-in:** PlantPal stellt zwei tägliche Alarme (23:30 und 23:55), die kurz eine unsichtbare Hintergrundaufgabe auf der Uhr ausführen, um die Schritte des Tages deiner Pflanze gutzuschreiben. Sie zeigt nichts an, sendet nichts und ist in unter einer Sekunde fertig.
 - **Spielstand:** Deine Pflanze, ihr Pflegeverlauf und dein Garten werden lokal im eigenen Speicher der App auf der Uhr gespeichert und beim Deinstallieren gelöscht.
 - PlantPal hat kein Konto, keinen Netzwerkzugriff, keine Analyse, keine Werbung und keine SDKs von Drittanbietern.
 

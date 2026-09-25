@@ -6,7 +6,7 @@ A Tamagotchi-style plant for Zepp OS square watches (Amazfit Active 2 Square, Bi
 
 - **Water / Sun** buttons and **tap the plant** for love. Needs drain in real time, even while the app is closed.
 - A need below 20 makes the plant **wilt**: growth pauses until you care for it again. It never dies.
-- **Steps** give bonus growth (1 per 500 steps, max 30/day). Steps are credited when you open the app, so check in before midnight.
+- **Steps** give bonus growth (1 per 500 steps, max 30/day). They're credited whenever you open the app, and by a silent check-in at 23:30 and 23:55 (`app-service/nightly.js`), so no steps are lost overnight.
 - Seed → Sprout → Sapling → Young → Bloom (~4–8 days). The need you keep topped up decides the final form:
   water → Fern, sun → Sunflower, love → Rose, walking → Oak, balanced → Bonsai.
 - The top line shows the time and the plant's age (Day 1 = planting day).
