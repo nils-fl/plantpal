@@ -5,14 +5,31 @@ Copy these into the Zepp Open Platform console (console.zepp.com → PlantPal �
 | Field | Value |
 |---|---|
 | appId | 1128597 |
-| Package | `zeus build` → `dist/1128597-PlantPal-1.0.0-*.zab` |
+| Package | `zeus build` → `dist/1128597-PlantPal-1.1.0-*.zab` |
 | Category | Games |
 | Icon | `store/icon.png` (240×240, round, transparent outside; same as `assets/default.s/icon.png`) |
-| Screenshots | `store/screenshots/1-thriving.png` … `4-stats.png` (360×360, transparent) |
+| Screenshots | Square: `store/screenshots/1-thriving.png` … `4-stats.png`; round: `store/screenshots/round/1-thriving.png` … `4-stats.png` (360×360, transparent; round ones: `node shots.mjs plantpal` in `../zepp-sim`) |
 | Data permissions | Step count (`data:user.hd.step`), alarms (`device:os.alarm`), background service (`device:os.bg_service`); all used on the watch only |
 | Third-party SDKs | None |
 | Payments | None in the app; the description mentions an optional tip link (ko-fi.com/nflaschel) |
 | Countries | All available |
+
+## Version 1.1.0 update
+
+1. Build: `zeus build` (zeus-cli must be installed for the active Node version) → `dist/1128597-PlantPal-1.1.0-*.zab`.
+2. Console → PlantPal → **Version Upgrade** → upload the `.zab`. Version 1.1.0 (code 2) and the supported devices are read from the package.
+3. Check that the device list now includes round watches (e.g. Active 2, Balance 2, GTR 4, T-Rex 3) next to the square ones.
+4. Add the round screenshots from `store/screenshots/round/` next to the square ones (same captions, same order).
+5. Paste the update notes below and the updated "Supported devices" line from the review notes.
+6. **Submit for Approval** (review usually takes 1–5 working days).
+
+**Update notes / What's new** (261 characters):
+
+Now on round watches! PlantPal runs on round Zepp OS 3 watches such as Amazfit Active 2, Balance 2, GTR 4 and T-Rex 3, with its home and stats screens laid out for the round display. Nothing changes on square watches, and your plant and garden stay as they are.
+
+**Neu in dieser Version** (260 characters):
+
+Jetzt auch für runde Uhren! PlantPal läuft auf runden Zepp-OS-3-Uhren wie Amazfit Active 2, Balance 2, GTR 4 und T-Rex 3, mit Start- und Statistikseite für das runde Display. Auf eckigen Uhren ändert sich nichts, deine Pflanze und dein Garten bleiben erhalten.
 
 ## English
 
