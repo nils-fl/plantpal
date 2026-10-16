@@ -2,7 +2,7 @@
 
 # PlantPal
 
-A Tamagotchi-style plant for Zepp OS square watches (Amazfit Active 2 Square, Bip 6, Active, GTS 4, …).
+A Tamagotchi-style plant for Zepp OS watches, square (Amazfit Active 2 Square, Bip 6, Active, GTS 4, …) and round (Active 2, Balance 2, GTR 4, T-Rex 3, …).
 
 - **Water / Sun** buttons and **tap the plant** for love. Needs drain in real time, even while the app is closed.
 - A need below 20 makes the plant **wilt**: growth pauses until you care for it again. It never dies.
@@ -29,7 +29,7 @@ Store listing texts, privacy statement and asset checklist: `store/listing.md`.
 
 Set `TIME_SCALE = 60` in `lib/game.js` to make an hour pass per minute while testing (a test guards it's 1 for release).
 
-Game logic lives in `lib/game.js` (pure, no `@zos` imports); `lib/store.js` handles storage and the step sensor.
+Game logic lives in `lib/game.js` (pure, no `@zos` imports); `lib/store.js` handles storage and the step sensor. Round screens use each page's round layout (480 px design canvas; `lib/screen.js` detects the shape), and `npm run sprites` mirrors the sprites to `assets/default.r/`.
 
 ## Support
 

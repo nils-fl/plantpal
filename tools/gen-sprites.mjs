@@ -1,4 +1,5 @@
-// Renders the pixel art in tools/sprites/art.mjs into PNGs under assets/default.s/.
+// Renders the pixel art in tools/sprites/art.mjs into PNGs under assets/default.s/
+// (square screens), then mirrors them to assets/default.r/ (round screens).
 // For every plant sprite it writes 4 variants: 2 idle-sway frames x healthy/wilted.
 import fs from 'node:fs'
 import path from 'node:path'
@@ -8,6 +9,8 @@ import { PALETTE, POT, FACES, PLANTS, ICONS } from './sprites/art.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const OUT = path.join(ROOT, 'assets/default.s')
+// Round watches use the same sprites; the build scales them from the 480 px design width.
+const OUT_ROUND = path.join(ROOT, 'assets/default.r')
 const N = 32
 const SCALE = 6
 const SOIL_ROW = 23
@@ -194,4 +197,7 @@ if (process.argv.includes('--preview')) {
 fs.mkdirSync(path.join(ROOT, 'store'), { recursive: true })
 fs.copyFileSync(path.join(OUT, 'icon.png'), path.join(ROOT, 'store/icon.png'))
 
-console.log(`wrote ${count} images to ${path.relative(ROOT, OUT)}`)
+fs.rmSync(OUT_ROUND, { recursive: true, force: true })
+fs.cpSync(OUT, OUT_ROUND, { recursive: true })
+
+console.log(`wrote ${count} images to ${path.relative(ROOT, OUT)} and ${path.relative(ROOT, OUT_ROUND)}`)

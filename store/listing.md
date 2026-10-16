@@ -88,7 +88,7 @@ PlantPal is a free offline virtual-pet game: the user cares for a pixel plant (W
 
 **Payments:** None. The app is completely free with no locked features. The store description only mentions an optional external tip link (ko-fi.com/nflaschel); nothing in the app refers to it.
 
-Supported devices: square-screen Zepp OS 3+ watches (developed and tested on Amazfit Active 2 Square).
+Supported devices: Zepp OS 3+ watches with square or round screens (developed and tested on Amazfit Active 2 Square; version 1.1.0 adds layouts for round 454–480 px screens such as Active 2, Balance 2, GTR 4 and T-Rex 3).
 
 ## Privacy statement
 

@@ -1,7 +1,7 @@
 {
   "name": "plantpal",
   "version": "1.0.0",
-  "description": "Tamagotchi-style plant care game for Zepp OS square watches",
+  "description": "Tamagotchi-style plant care game for Zepp OS square and round watches",
   "type": "module",
   "main": "app.js",
   "scripts": {

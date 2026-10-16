@@ -2,9 +2,13 @@ import { createWidget, widget, align, text_style, setStatusBarVisible } from '@z
 import { px } from '@zos/utils'
 import * as G from '../../lib/game.js'
 import { load, readSteps } from '../../lib/store.js'
+import { ROUND } from '../../lib/screen.js'
 
-const W = 390
-const PAD = 32
+// Round: narrower, centred column that starts lower and can scroll its last line to the middle.
+const W = ROUND ? 480 : 390
+const PAD = ROUND ? 72 : 32
+const TOP = ROUND ? 90 : 48 // clear of the rounded top corners / the circle's top
+const BOTTOM = ROUND ? 160 : 40
 const CARE = [
   { key: 'water', label: 'Water', color: 0x4fc3f7 },
   { key: 'sun', label: 'Sun', color: 0xffd54f },
@@ -19,13 +23,13 @@ Page({
     // Read-only view: tick a copy without saving so the home page stays the single writer.
     const now = Date.now()
     const s = G.tick(load(now), now, readSteps(), G.dateKey(new Date(now)))
-    let y = 48 // clear of the rounded top corners
+    let y = TOP
 
     const text = (str, size, color, h = size + 12) => {
       createWidget(widget.TEXT, {
         x: px(PAD), y: px(y), w: px(W - 2 * PAD), h: px(h),
         color, text_size: px(size), text: str,
-        align_h: align.LEFT, align_v: align.CENTER_V, text_style: text_style.WRAP
+        align_h: ROUND ? align.CENTER_H : align.LEFT, align_v: align.CENTER_V, text_style: text_style.WRAP
       })
       y += h
     }
@@ -79,7 +83,7 @@ Page({
         const days = G.ageDay({ born: g.born }, g.bloomed)
         text(`${G.FORMS[g.form].name} · ${MONTHS[d.getMonth()]} ${d.getDate()} · ${days} days`, 20, 0xcccccc, 30)
       })
-    y += 40
+    y += BOTTOM
 
     // Invisible spacer so the page can scroll past the last line.
     createWidget(widget.FILL_RECT, { x: 0, y: px(y), w: px(W), h: px(1), color: 0x000000 })

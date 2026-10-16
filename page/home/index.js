@@ -6,19 +6,50 @@ import { px } from '@zos/utils'
 import * as G from '../../lib/game.js'
 import { sync, save } from '../../lib/store.js'
 import { ensureNightly } from '../../lib/nightly.js'
+import { ROUND } from '../../lib/screen.js'
 
-const W = 390
+// Each text row is { y, h } plus x/w on round screens, where rows near the top and bottom are
+// narrower to stay inside the circle (full width otherwise).
+const SQUARE_LAYOUT = {
+  W: 390,
+  // Kept clear of the rounded display corners: clock at top center, bars below it, inset from the sides.
+  barY: 50,
+  barW: 70,
+  barX: [35, 145, 255],
+  clock: { y: 10, h: 28 },
+  name: { y: 72, h: 36 },
+  spriteY: 110,
+  mood: { y: 304, h: 32 },
+  btn: { x: 20, y: 344, h: 62, gap: 10, w2: 170, w3: 110, textSize: 26 },
+  hint: { y: 410, h: 24, text: 'Tap plant · swipe up for stats' }
+}
+// Round design canvas is 480x480; everything stays 12 px inside the circle.
+const ROUND_LAYOUT = {
+  W: 480,
+  barY: 78,
+  barW: 60,
+  barX: [95, 195, 295],
+  clock: { x: 145, y: 34, w: 190, h: 28 },
+  name: { x: 70, y: 96, w: 340, h: 34 },
+  spriteY: 130,
+  mood: { x: 50, y: 322, w: 380, h: 30 },
+  btn: { y: 356, h: 54, gap: 10, w2: 144, w3: 94, textSize: 24 },
+  hint: { x: 130, y: 414, w: 220, h: 22, text: 'Tap plant · swipe up' }
+}
+const L = ROUND ? ROUND_LAYOUT : SQUARE_LAYOUT
+const W = L.W
 const SPRITE = 192
 const SPRITE_X = (W - SPRITE) / 2
-const SPRITE_Y = 110
-// Kept clear of the rounded display corners: clock at top center, bars below it, inset from the sides.
-const BAR_Y = 50
-const BAR_W = 70
+const SPRITE_Y = L.spriteY
+const BAR_Y = L.barY
+const BAR_W = L.barW
 const BARS = [
-  { key: 'water', icon: 'ui/drop.png', color: 0x4fc3f7, x: 35 },
-  { key: 'light', icon: 'ui/sun.png', color: 0xffd54f, x: 145 },
-  { key: 'love', icon: 'ui/heart.png', color: 0xf06292, x: 255 }
+  { key: 'water', icon: 'ui/drop.png', color: 0x4fc3f7, x: L.barX[0] },
+  { key: 'light', icon: 'ui/sun.png', color: 0xffd54f, x: L.barX[1] },
+  { key: 'love', icon: 'ui/heart.png', color: 0xf06292, x: L.barX[2] }
 ]
+// Position of a text row: full width unless the layout narrows it.
+const row = (r) => ({ x: px(r.x || 0), y: px(r.y), w: px(r.w || W), h: px(r.h) })
 const LOW_COLOR = 0xe53935
 const SWAY_MS = 700
 const TICK_MS = 60 * 1000
@@ -63,14 +94,14 @@ Page({
     })
 
     w.clock = createWidget(widget.TEXT, {
-      x: 0, y: px(10), w: px(W), h: px(28),
+      ...row(L.clock),
       color: 0x888888, text_size: px(22),
       align_h: align.CENTER_H, align_v: align.CENTER_V, text_style: text_style.NONE,
       text: ''
     })
 
     w.name = createWidget(widget.TEXT, {
-      x: 0, y: px(72), w: px(W), h: px(36),
+      ...row(L.name),
       color: 0xffffff, text_size: px(26),
       align_h: align.CENTER_H, align_v: align.CENTER_V, text_style: text_style.NONE,
       text: ''
@@ -88,29 +119,32 @@ Page({
     w.heart.setProperty(prop.VISIBLE, false)
 
     w.mood = createWidget(widget.TEXT, {
-      x: 0, y: px(304), w: px(W), h: px(32),
+      ...row(L.mood),
       color: 0xaaaaaa, text_size: px(22),
       align_h: align.CENTER_H, align_v: align.CENTER_V, text_style: text_style.NONE,
       text: ''
     })
 
     const bloomed = this.state.bloomedAtBuild
-    const btnW = bloomed ? 110 : 170
+    const B = L.btn
+    const btnW = bloomed ? B.w3 : B.w2
+    // Square keeps its left inset; round centres the row in the circle.
+    const btnX = B.x !== undefined ? B.x : (W - (bloomed ? 3 : 2) * (btnW + B.gap) + B.gap) / 2
     const btn = (i, text, color, press, textColor, fn) =>
       createWidget(widget.BUTTON, {
-        x: px(20 + i * (btnW + 10)), y: px(344), w: px(btnW), h: px(62), radius: px(31),
+        x: px(btnX + i * (btnW + B.gap)), y: px(B.y), w: px(btnW), h: px(B.h), radius: px(B.h / 2),
         normal_color: color, press_color: press, color: textColor,
-        text_size: px(26), text, click_func: fn
+        text_size: px(B.textSize), text, click_func: fn
       })
     btn(0, 'Water', 0x1565c0, 0x0d47a1, 0xffffff, () => this.act(G.water))
     btn(1, 'Sun', 0xf9a825, 0xf57f17, 0x000000, () => this.act(G.sun))
     if (bloomed) btn(2, 'Seed', 0x2e7d32, 0x1b5e20, 0xffffff, () => this.replant())
 
     createWidget(widget.TEXT, {
-      x: 0, y: px(410), w: px(W), h: px(24),
+      ...row(L.hint),
       color: 0x666666, text_size: px(16),
       align_h: align.CENTER_H, align_v: align.CENTER_V, text_style: text_style.NONE,
-      text: 'Tap plant · swipe up for stats'
+      text: L.hint.text
     })
 
     onGesture({
